@@ -16,5 +16,8 @@
     "url": "https://github.com/lvforrest/eat-the-burger/issues"
   },
   "homepage": "https://github.com/lvforrest/eat-the-burger#readme",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
 }
