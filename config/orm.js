@@ -11,8 +11,9 @@ var orm = {
             cb(result);
         })
     },
-    update: function(tableInput,condition,cb){
-        var string = "UPDATE   "+tableInput+ " SET devoured=true WHERE id= " +condition+";";
+    update: function(burgerID,cb){
+        var id= burgerID;
+        var string = "UPDATE burgers SET devoured=1  WHERE id=?", [id];
         connection.query(string, function(err,result){
             if (err){
                 throw err;
@@ -21,12 +22,13 @@ var orm = {
 
         })
     },
-    create: function(table, val, cb){
+    create: function(tableInput, val, cb){
         var string= "INSERT INTO "+tableInput+ "(burger_name) VALUES ('"+val+"');";
         connection.query(string, function(err,result){
             if (err){
                 throw err;
             }
+            console.log(result);
             cb(result);
         })
     }
