@@ -9,14 +9,18 @@ router.get("/", function(req,res){
     })
 })
  
- router.put("/burger/update",function(req, res){
-     burger.update(res.body.burger_id, function(result){
+ router.put("/burgers/update",function(req, res){
+     burger.update(req.body.burgers_id, function(result){
          console.log(result);
-         res.render("/");
+         res.redirect("/");
      });
  });
 
-
+router.post("/burgers/create", function(req, res){
+    burger.create(req.body.burger_name, function(result){
+        res.redirect("/",{burger_data});
+    })
+})
 
 
 module.exports =router;
