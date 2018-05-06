@@ -11,17 +11,17 @@ var orm = {
             cb(result);
         })
     },
-    // update: function(burgerID,cb){
-    //     var id= burgerID;
-    //     // var string = "UPDATE burgers SET devoured=true  WHERE id=?", [id];
-    //     connection.query("UPDATE burgers SET devoured=1 WHERE id=?", [id], function(err, result){
-    //         if (err){
-    //             throw err;
-    //         } 
-    //         cb(result);
+    update: function(tableInput, condition,cb){
+        
+        var string = "UPDATE " +tableInput+ "SET devoured =true WHERE id =" +condition+";";
+        connection.query(string, function(err, result){
+            if (err){
+                throw err;
+            } 
+            cb(result);
 
-    //     })
-    // },
+        })
+    },
     create: function(tableInput, val, cb){
         var string= "INSERT INTO "+tableInput+ "(burger_name) VALUES ('"+val+"');";
         connection.query(string, function(err,result){
