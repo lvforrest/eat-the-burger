@@ -24,7 +24,15 @@ router.post("/burgers/create", function(req, res){
         res.redirect("/");
     })
 })
+// router.delete("/burgers/delete/:id",function(req, res){
+//     var condition = "id= " + req.params.id;
+//     burger.delete(
+//         {"delete": req.body.delete}, condition,function(result){
 
+//         console.log(result);
+//         res.redirect("/")
+//     })
+// })
 
 module.exports =router;
 

@@ -59,19 +59,8 @@ var orm = {
           cb(result);
         });
       },
-    // update: function(tableInput, condition,cb){
-        
-    //     var string = "UPDATE " +tableInput+ "SET devoured=1 WHERE id =?" +condition+";";
-    //     connection.query(string, function(err, result){
-    //         if (err){
-    //             throw err;
-    //         } 
-    //         cb(result);
-
-    //     })
-    // },
     create: function(tableInput, val, cb){
-        var string= "INSERT INTO "+tableInput+ "(burger_name) VALUES ('"+val+"');";
+        var string= "INSERT INTO "+tableInput+ ";";
         connection.query(string, function(err,result){
             if (err){
                 throw err;
@@ -79,6 +68,31 @@ var orm = {
             console.log(result);
             cb(result);
         })
-    }
+    },
+    // delete: function(tableInput, condition, cb){
+    
+    //   var string= "DELETE * FROM "+ tableInput +"WHERE ('burger_name') "+condition;
+    //   connection.query(string, function(err,result){
+    //       if (err) {
+    //           throw err;
+    //       }
+    //       cb(result);
+    //   })
+    // },
+  //   delete:function(tableInput, objColVals, condition, cb) {
+  //     var queryString = "DELETE " + tableInput;
+  
+  //     queryString += objToSql(objColVals);
+  //     queryString += "FROM ";
+  //     queryString += condition;
+  
+  //     console.log(queryString);
+  //     connection.query(queryString, function(err, result) {
+  //       if (err) {
+  //         throw err;
+  //       }
+  //       cb(result);
+  //     })
+  // }
 } 
 module.exports = orm;

@@ -1,7 +1,7 @@
 
     <div class="container">	
 	<div class="jumbotron"> 
-		<img src="../public/assets/images/burger.png"> 
+		<img src="./assets/images/krabbypatty.jpg" width="200px" height="200px"> 
 		<h1> EAT DA BURGER! </h1>
 	</div>
 
@@ -17,7 +17,7 @@
 							<span class="input-group-btn">
 								<form action="burgers/update/{{this.id}}?_method=PUT" method="POST">
 									<input type="hidden" name="devoured" value="true">
-									<button class="btn btn-default btn-lg" type="submit"> DEVOUR IT! </button>
+									<button class="btn btn-danger btn-lg" type="submit"><img src="./assets/images/devour.jpg" width="45px" height="45px"> <strong> DEVOUR IT!</strong></button>
 								</form>
 							</span>
 						</div>
@@ -36,7 +36,10 @@
 				{{#each burger_data}}
 					{{#if this.devoured}}
 					<li class="list-group-item">
-						<p class="lead">{{this.burger_name}} </p>
+						<span class="input-group-btn">
+							<p class="lead">{{this.burger_name}} </p>
+							<button class="btn btn-danger btn-lg" type="submit">Delete</button>
+					</span>
 					</li>
 					{{/if}}
 				{{/each}}
@@ -46,7 +49,7 @@
 	</div>
 
 	<div class="col-md-10 col-md-offset-1">
-		<p class="lead"> Enter the name of the burger you want to eat and click the button. </p>
+		<p class="lead"> <strong> Enter the name of the burger you want to eat and click "Yummy".</strong>  </p>
 
 		<form class="create-update-form" action="burgers/create" method="POST">
 
@@ -54,7 +57,10 @@
 				<textarea class="form-control input-lg" type="text" name="burger_name" rows="3"> </textarea>
 			</div>
 
-			<button class="btn btn-default btn-lg" type="submit">Yummy!</button>
+			<button class="btn btn-default btn-lg" type="submit"><img src="./assets/images/yummy.jpg"width="25px" height="25px"><strong>Yummy!</strong></button>
 		</form>
 	</div>
 </div>
+
+{{!-- <form action="burgers/delete/{{this.id}}?_ method=DELETE" method="POST">
+							<input type="hidden" name="delete" value="DELETE"> --}}
