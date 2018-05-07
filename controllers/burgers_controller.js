@@ -9,8 +9,12 @@ router.get("/", function(req,res){
     })
 })
  
- router.put("/burgers/update",function(req, res){
-     burger.update(req.body.burger_id, function(result){
+ router.put("/burgers/update/:id",function(req, res){
+     var condition = "id" + req.params.id;
+     burger.update(
+         {
+         devoured: req.body.devoured}, condition,function(result){
+
          console.log(result);
          res.redirect("/");
      });
@@ -24,3 +28,23 @@ router.post("/burgers/create", function(req, res){
 
 
 module.exports =router;
+
+// router.put("/api/cats/:id", function(req, res) {
+//     var condition = "id = " + req.params.id;
+  
+//     console.log("condition", condition);
+  
+//     cat.update(
+//       {
+//         sleepy: req.body.sleepy
+//       },
+//       condition,
+//       function(result) {
+//         if (result.changedRows === 0) {
+//           // If no rows were changed, then the ID must not exist, so 404
+//           return res.status(404).end();
+//         }
+//         res.status(200).end();
+  
+//       }
+//     );

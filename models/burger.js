@@ -6,8 +6,8 @@ var burger ={
             cb(result);
         })
     },
-    update: function(id,cb){
-        orm.update("burgers", id,function(result){
+    update: function(objColVals, condition,cb){
+        orm.update("burgers", objColVals, condition,function(result){
             cb(result);
         })
     },
