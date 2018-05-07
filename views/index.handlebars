@@ -11,10 +11,10 @@
 <div class="container">	
 	<div class="jumbotron"> 
 		<img src="../public/assets/images/burger.jpeg"> 
-		<h1> Eat-Da-Burger! </h1>
+		<h1> Eat Da Burger! </h1>
         <div class="row">
             <div class="col-xs-12 text-center" id="header">
-                <h1>Eat Da Burger</h1>
+                {{!-- <h1>Eat Da Burger</h1> --}}
                 <div class="col-xs-6 text-center" class="task">
                 <div class="row">
                     {{#each burger_data}}
@@ -23,7 +23,7 @@
                         <pre>{{this.id}}.{{this.burger_name}}</pre>
                     </div>
                     <div class="col-xs-3 text-center">
-                        <form method="POST" action="burgers/update" method= "PUT" class="button-size">
+                        <form method="POST" action="burgers/update/{{id}}" method= "PUT" class="button-size">
                         <input type="hidden" name="burger_id" type="text" value= {{this.id}}>
                         <br>
                         <button type="submit" class="btn btn-default">DEVOUR IT!!!</button>
