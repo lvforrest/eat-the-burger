@@ -23,4 +23,4 @@ var port = process.env.PORT ||3000;
 
 
 app.listen(port);
-console.log("connected!");
+console.log("YAY it's connected!");

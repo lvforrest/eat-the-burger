@@ -24,6 +24,6 @@
     "method-override": "^2.3.10",
     "mysql": "^2.15.0",
     "npm": "^6.0.0",
-    "sequelize": "^4.37.6"
+    "sequelize": "^4.37.7"
   }
 }

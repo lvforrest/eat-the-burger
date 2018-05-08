@@ -60,15 +60,19 @@ var orm = {
         });
       },
     create: function(tableInput, val, cb){
-        var string= "INSERT INTO "+tableInput+ ";";
-        connection.query(string, function(err,result){
+        //var string= "INSERT INTO '" + tableInput  + "' ('burger_name')" + " VALUES "+ "('"+val+"')"+ ";";
+        var string= `INSERT INTO burgers (burger_name) VALUES ("tuna");`;
+        console.log(string);
+        connection.query(string, val, function(err,result){
             if (err){
                 throw err;
             }
             console.log(result);
+            console.log(cb);
+            console.log(typeof cb);
             cb(result);
         })
-    },
+    }
     // delete: function(tableInput, condition, cb){
     
     //   var string= "DELETE * FROM "+ tableInput +"WHERE ('burger_name') "+condition;
