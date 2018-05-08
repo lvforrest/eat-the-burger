@@ -1,4 +1,6 @@
 var connection =require("./connection.js");
+
+// *used from cats app*//
 function printQuestionMarks(num) {
     var arr = [];
   
@@ -33,9 +35,9 @@ function printQuestionMarks(num) {
   }
 
 var orm = {
-    all: function(tableInput, cb){
+    all: function(table, cb){
     
-        var string= "SELECT * FROM " +tableInput+ ";";
+        var string= "SELECT * FROM " +table+ ";";
         connection.query(string, function(err,result){
             if (err) {
                 throw err;
@@ -43,8 +45,8 @@ var orm = {
             cb(result);
         })
     },
-    update: function(tableInput, objColVals, condition, cb) {
-        var queryString = "UPDATE " + tableInput;
+    update: function(table, objColVals, condition, cb) {
+        var queryString = "UPDATE " + table;
     
         queryString += " SET ";
         queryString += objToSql(objColVals);
@@ -59,17 +61,18 @@ var orm = {
           cb(result);
         });
       },
-    create: function(tableInput, val, cb){
+    create: function(table, val, cb){
         //var string= "INSERT INTO '" + tableInput  + "' ('burger_name')" + " VALUES "+ "('"+val+"')"+ ";";
-        var string= `INSERT INTO burgers (burger_name) VALUES ("tuna");`;
+        // var string= `INSERT INTO burgers (burger_name) VALUES ("tuna");`;
+          var string = 'INSERT INTO '+ table+ " (burger_name) VALUES ('"+val+"');";
         console.log(string);
-        connection.query(string, val, function(err,result){
+        connection.query(string, function(err,result){
             if (err){
                 throw err;
             }
             console.log(result);
-            console.log(cb);
-            console.log(typeof cb);
+            // console.log(cb);
+            // console.log(typeof cb);
             cb(result);
         })
     }
